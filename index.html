@@ -9,6 +9,8 @@
 <h1>ShopLink Global</h1>
 <p>Find shops near you. Order easily on WhatsApp.</p>
 <hr>
+<input type="text" id="searchBox" onkeyup="searchShops()" placeholder="Search by city or shop name... e.g. Lagos, Agbor" style="width: 90%; padding: 15px; border-radius: 10px; border: none; font-size: 16px;">
+<br><br>
 <h2>How It Works - Very Easy</h2>
 <p><b>Step 1:</b> Find a shop you like below</p>
 <p><b>Step 2:</b> Click the green "Order on WhatsApp" button</p>
@@ -50,6 +52,22 @@
 <a href="https://wa.me/2349158486261?text=Hello%20ShopLink%20Global%2C%20I%20want%20to%20join%20as%20a%20shop">Join As A Shop - Click Here</a>
 
 <p>Monthly Fee: Free for first 5 shops</p>
+<script>
+function searchShops() {
+  let input = document.getElementById('searchBox').value.toLowerCase();
+  let shops = document.querySelectorAll('div');
+  shops.forEach(function(shop) {
+    if (shop.querySelector('h3')) {
+      let text = shop.innerText.toLowerCase();
+      if (text.includes(input)) {
+        shop.style.display = '';
+      } else {
+        shop.style.display = 'none';
+      }
+    }
+  });
+}
+</script>
 
 </body>
 </html>
